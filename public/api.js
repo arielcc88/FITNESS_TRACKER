@@ -1,14 +1,15 @@
 const API = {
   async getLastWorkout() {
+    //returns all existent workouts
     let res;
     try {
-      res = await fetch("/api/workouts");
+      res = await fetch("/api/workouts"); //api route to query DB
     } catch (err) {
       console.log(err)
     }
     const json = await res.json();
 
-    return json[json.length - 1];
+    return json[json.length - 1]; //return only the last element of the array of workouts
   },
   async addExercise(data) {
     const id = location.search.split("=")[1];

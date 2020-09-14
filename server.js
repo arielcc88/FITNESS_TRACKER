@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 //ROUTE MIDDLEWARES
 app.use("/exercise", exerciseRouter);
+app.use("/api", apiRouter);
 
 
 //STARTING SERVER
