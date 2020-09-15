@@ -12,6 +12,7 @@ const helper = require("../utils/helpers");
 //--------
 //API ROUTES
 //--------
+//retrieves all existing workouts
 router
     .route("/workouts") //returns all workouts
     .get((req, res) => {
@@ -26,6 +27,20 @@ router
             });
     });
 
+//posting (creating) new workout
+router
+    .route("/workouts")
+    .post((req, res) => {
+        db.Workout.create({}) // empty workout object
+        .then((dbWorkout) => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.json(err);
+        })
+    });
+
+//updating existing workout
 router
     .route("/workouts/:id")
     .put((req,res) => {
@@ -36,7 +51,6 @@ router
         },
         { new: true, runValidators: true })
         .then((dbWorkout) => {
-            console.log("workout inserted ", dbWorkout);
             res.json(dbWorkout);
         })
         .catch(err => {
@@ -44,5 +58,41 @@ router
         });
     });
 
+// //1 week range (workouts)
+// router
+//     .route("/workouts/range")
+//     .get((req,res) => {
+//         db.Workout.find({}).sort({"day": 1}).limit(8)
+//         .then((dbWorkout) => {
+//             const dbWorkoutMod = helper.getTotalDurationTime(dbWorkout);
+//             res.json(dbWorkoutMod);
+//         })
+//         .catch(err => {
+//             res.json(err);
+//         });
+//     });
+
+//1 week range (workouts)
+router
+    .route("/workouts/range")
+    .get((req,res) => {
+        //get total number of records.
+        db.Workout.count({})
+        .then((count) => {
+            //with the count, extract the last 7 records.
+            db.Workout.find({}).skip(count - 7)
+            .then((dbWorkout) => {
+                const dbWorkoutMod = helper.getTotalDurationTime(dbWorkout);
+                console.log("last seven days", dbWorkoutMod);
+                res.json(dbWorkoutMod);
+            })
+            .catch(err => {
+                res.json(err);
+            });
+        })
+        .catch(err => {
+            res.json(err);
+        });
+    });
 
 module.exports = router;

@@ -11,6 +11,7 @@ const app = express();
 require("./seeders/seed.js");
 //ROUTERS
 const exerciseRouter = require("./routes/exercise_router");
+const statsRouter = require("./routes/stats_router");
 const apiRouter = require("./routes/api_router");
 
 //BODY PARSER
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 //ROUTE MIDDLEWARES
 app.use("/exercise", exerciseRouter);
+app.use("/stats", statsRouter);
 app.use("/api", apiRouter);
 
 
