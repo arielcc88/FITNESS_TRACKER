@@ -77,13 +77,12 @@ router
     .route("/workouts/range")
     .get((req,res) => {
         //get total number of records.
-        db.Workout.count({})
+        db.Workout.countDocuments({})
         .then((count) => {
             //with the count, extract the last 7 records.
             db.Workout.find({}).skip(count - 7)
             .then((dbWorkout) => {
                 const dbWorkoutMod = helper.getTotalDurationTime(dbWorkout);
-                console.log("last seven days", dbWorkoutMod);
                 res.json(dbWorkoutMod);
             })
             .catch(err => {

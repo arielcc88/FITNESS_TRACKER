@@ -8,8 +8,6 @@ const API = {
       console.log(err)
     }
     const json = await res.json();
-    console.log(json)
-
     return json[json.length - 1]; //return only the last element of the array of workouts
   },
   async addExercise(data) {
