@@ -1,6 +1,8 @@
-# Unit 17 Nosql Homework: Workout Tracker
+# Workout Tracker (Node JS and MongoDB)
 
-For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+![MIT](https://img.shields.io/static/v1?label=License&message=MIT&color=green)
+
+A workout tracker: Intended to help athletes and non-athletes to work for their fitness and training goals.
 
 ## User Story
 
@@ -10,42 +12,53 @@ For this assignment, you'll create a workout tracker. You have already been prov
 
 A consumer will reach their fitness goals quicker when they track their workout progress.
 
-## Acceptance Criteria
+## Technologies 
 
-When the user loads the page, they should be given the option to create a new workout, or continue with their last workout.
+1. **Node JS**
+2. **MongoDB**
+3. **Mongoose**
+4. **Express**
 
-The user should be able to:
+## Instructions
 
-  * Add exercises to a previous workout plan.
+Clone this repo and follow these steps:
+- run npm install (install dependencies)
+- Ensure you have Mongo installed and server up anr running.
+- This app comes equipped with a DB Seeder that will connect to the DB and pre-load some sample data.
+- in Dev Env. app wil run at http://localhost:8080 (the port could be change in the server.js file)
 
-  * Add new exercises to a new workout plan.
 
-  * View multiple the combined weight of multiple exercises on the `stats` page.
+## Deployed App (Heroku + Mongo Atlas) 
 
-## Commit Early and Often
+* [Heroku Link](https://nameless-journey-77779.herokuapp.com/)
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+App Home Page:
+- App home page loads information of last workout stored in DB and allows the user to either add an exercise to that workout or to start a new one.
+![Homepage](./public/images/homepage.png)
 
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills
+Continue or New workout view:
+- Select exercise type and fill in the information to register a new exercise.
+![Exercise](./public/images/exercise.png)
 
-2. Your commit history allows you to revert your code base in the event that you need to return to a previous state
+Stat Dashboard:
+- Graphs are provided to see the progress of the last 7 days.
+![Stats](./public/images/stats.png)
 
-Follow these guidelines for committing:
+## Contributing
 
-* Make single purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits
+1. Ariel Cuesta
 
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history
 
-* Don't commit half done work, for the sake of your collaborators (and your future self!)
+## Tests
 
-* Test your application before you commit to ensure functionality at every step in the development process
+Testing has not been incorporated at the moment.
 
-We would like you to have well over 200 commits by graduation, so commit early and often!
 
-## Submission on BCS
+## License
 
-You are required to submit the following:
+MIT
 
-* The URL to the deployed application
+## Questions
 
-* The URL to the Github repository
+Want to get in touch? Github: arielcc88
+Report bugs and enhancements to: arielcc88@gmail.com
